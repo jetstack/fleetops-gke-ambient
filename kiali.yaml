@@ -1,0 +1,22 @@
+apiVersion: kiali.io/v1alpha1
+kind: Kiali
+metadata:
+  labels:
+    app: kiali-operator
+  name: kiali
+  namespace: istio-system
+spec:
+  auth:
+    strategy: anonymous
+  deployment:
+    accessible_namespaces:
+    - '**'
+  external_services:
+    prometheus:
+      url: http://prometheus-operator-kube-p-prometheus.prometheus:9090/
+    grafana:
+      in_cluster_url: 'http://prometheus-operator-grafana.prometheus/'
+    istio:
+      ingress_gateway_namespace: 'istio-ingress'
+  istio_labels:
+    ingress_gateway_label: "istio=ingress"

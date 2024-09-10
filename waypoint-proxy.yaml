@@ -4,7 +4,6 @@ metadata:
   labels:
     istio.io/waypoint-for: service
   name: waypoint
-  namespace: bank-of-ambient
 spec:
   gatewayClassName: istio-waypoint
   listeners:
